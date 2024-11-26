@@ -20,12 +20,12 @@ public class CountCharactersTests
         Assert.That(result, Is.Empty);
     }
 
-    
+
     [Test]
     public void Test_Count_WithNoCharacters_ShouldReturnEmptyString()
     {
         // Arrange
-        List <string> input = new List<string>() {"", "", ""};
+        List<string> input = new List<string>() { "", "", "" };
 
         // Act
         string result = CountCharacters.Count(input);
@@ -45,18 +45,20 @@ public class CountCharactersTests
         string result = CountCharacters.Count(input);
 
         // Assert
-        Assert.That(result, Is.EqualTo (expected), "Count of characters is more than 1");
+        Assert.That(result, Is.EqualTo(expected), "Count of characters is more than 1");
     }
 
     [Test]
     public void Test_Count_WithMultipleCharacters_ShouldReturnCountString()
     {
         //Arrange
-        List<string> input = new List<string>() {"ab", "ac", "abc" };
-        string expected = $"a -> 3\r\nb -> 2\r\nc -> 2";
+        List<string> input = new List<string>() { "ab", "ac", "abc" };
+        string expected = $"a -> 3" +
+                          $"{Environment.NewLine}b -> 2" +
+                          $"{Environment.NewLine}c -> 2";
 
         //Act
-        string result= CountCharacters.Count(input);
+        string result = CountCharacters.Count(input);
 
         //Assert
         Assert.That(result, Is.EqualTo(expected));
@@ -66,7 +68,11 @@ public class CountCharactersTests
     {
         //Arrange
         List<string> input = new List<string>() { "!a", "#&a", "&" };
-        string expected = $"! -> 1\r\na -> 2\r\n# -> 1\r\n& -> 2";
+        string expected = $"! -> 1" +
+                          $"{Environment.NewLine}a -> 2" +
+                          $"{Environment.NewLine}# -> 1" +
+                          $"{Environment.NewLine}& -> 2";
+
 
         //Act
         string result = CountCharacters.Count(input);
