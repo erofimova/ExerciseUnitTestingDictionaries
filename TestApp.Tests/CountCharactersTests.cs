@@ -20,33 +20,58 @@ public class CountCharactersTests
         Assert.That(result, Is.Empty);
     }
 
-    // TODO: finish test
+    
     [Test]
     public void Test_Count_WithNoCharacters_ShouldReturnEmptyString()
     {
         // Arrange
+        List <string> input = new List<string>() {"", "", ""};
 
         // Act
+        string result = CountCharacters.Count(input);
 
         // Assert
-        //Assert.That(result, Is.Empty);
+        Assert.That(result, Is.Empty);
     }
 
     [Test]
     public void Test_Count_WithSingleCharacter_ShouldReturnCountString()
     {
-        // TODO: finish test
+        // Arrange
+        List<string> input = new List<string>() { "F" };
+        string expected = "F -> 1";
+
+        // Act
+        string result = CountCharacters.Count(input);
+
+        // Assert
+        Assert.That(result, Is.EqualTo (expected), "Count of characters is more than 1");
     }
 
     [Test]
     public void Test_Count_WithMultipleCharacters_ShouldReturnCountString()
     {
-        // TODO: finish test
-    }
+        //Arrange
+        List<string> input = new List<string>() {"ab", "ac", "abc" };
+        string expected = $"a -> 3\r\nb -> 2\r\nc -> 2";
 
+        //Act
+        string result= CountCharacters.Count(input);
+
+        //Assert
+        Assert.That(result, Is.EqualTo(expected));
+    }
     [Test]
     public void Test_Count_WithSpecialCharacters_ShouldReturnCountString()
     {
-        // TODO: finish test
+        //Arrange
+        List<string> input = new List<string>() { "!a", "#&a", "&" };
+        string expected = $"! -> 1\r\na -> 2\r\n# -> 1\r\n& -> 2";
+
+        //Act
+        string result = CountCharacters.Count(input);
+
+        //Assert
+        Assert.That(result, Is.EqualTo(expected));
     }
 }
